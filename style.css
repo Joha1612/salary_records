@@ -252,29 +252,29 @@ body {
         /* Style for the toggle button */
         .sidebar-toggle-btn {
             position: absolute;
-            top: 50%; /* header-er moddhe vertical center */
+            top: 50%;
             left: 15px;
-            transform: translateY(-50%); /* exactly center korar jonno */
+            transform: translateY(-50%);
             z-index: 10;
         }
         /* Header style for better alignment */
         .header-content {
             display: flex;
-            justify-content: center; /* PSMS text ke center e rakhar jonno */
+            justify-content: center;
             align-items: center;
             width: 100%;
-            position: relative; /* Logout button er jonno */
+            position: relative;
         }
         .header-content h3 {
-            margin: 0; /* Bootstrap default margin remove kora holo */
-            flex-grow: 1; /* H3 ke space newar onumoti deya holo */
-            text-align: center; /* নিশ্চিত করার জন্য যে H3 সর্বদা সেন্টারে থাকে */
+            margin: 0;
+            flex-grow: 1;
+            text-align: center;
         }
         /* Style for the Logout button - positioned to the right */
         .logout-btn {
-            position: absolute; /* header-er moddhe position fixed korar jonno */
-            top: 50%; /* header theke niche vertical center */
-            right: 15px; /* header-er dan pashe */
-            transform: translateY(-50%); /* exactly center korar jonno */
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
             z-index: 10;
         }
