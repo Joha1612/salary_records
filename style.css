@@ -278,3 +278,83 @@ body {
             transform: translateY(-50%);
             z-index: 10;
         }
+        /* Responsive Layout Enhancements */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .filter-section {
+    flex-direction: column;
+  }
+
+  .form-group, .filter-section button {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .sidebar-toggle-btn {
+    top: 10px;
+    left: 10px;
+    transform: none;
+  }
+
+  .logout-btn {
+    top: 10px;
+    right: 10px;
+    transform: none;
+  }
+
+  .header-content h3 {
+    font-size: 18px;
+  }
+
+  iframe {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    font-size: 12px;
+  }
+
+  input, select, textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .submit-btn, .filter-btn, .cancel-btn, .action-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .report-pdf-btn {
+    margin: 5px 0;
+  }
+}
+
+/* Scrollable Table on Small Screens */
+@media (max-width: 768px) {
+  .table-container,
+  .report-table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 600px;
+  }
+}
