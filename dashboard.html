@@ -11,6 +11,7 @@
     <header class="bg-primary text-white py-3 position-relative">
         <button class="btn btn-light sidebar-toggle-btn" onclick="toggleSidebar()">☰</button>
         <h3 class="text-center">PSMS</h3>
+        <button class="btn btn-danger logout-btn" onclick="logout()">Logout</button>
     </header>
     <div class="main">
         <nav class="sidebar" id="sidebar">
@@ -35,8 +36,15 @@
 
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('collapsed');
+            // 'collapsed' class manage kore sidebar show/hide korbe
+            sidebar.classList.toggle('collapsed'); 
+        }
+
+        // New logout function to redirect to the login page
+        function logout() {
+            window.location.href = 'index.html'; 
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
