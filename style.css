@@ -221,8 +221,8 @@
     padding: 0;
   }
 }
-body{
-min-height: 100vh;
+body {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -234,12 +234,11 @@ min-height: 100vh;
             width: 250px;
             background-color: #f8f9fa;
             padding: 1rem;
-            /* Default: show sidebar */
             transition: width 0.3s ease-in-out;
-            overflow: hidden; /* Hide content when width is 0 */
+            overflow: hidden;
         }
         .sidebar.collapsed {
-            width: 0; /* Hide sidebar */
+            width: 0;
         }
         .content {
             flex: 1;
@@ -252,8 +251,30 @@ min-height: 100vh;
         }
         /* Style for the toggle button */
         .sidebar-toggle-btn {
-            position: absolute; /* Position relative to the header */
-            top: 15px; /* Adjust as needed */
-            left: 15px; /* Adjust as needed */
-            z-index: 10; /* Ensure it's above other content */
+            position: absolute;
+            top: 50%; /* header-er moddhe vertical center */
+            left: 15px;
+            transform: translateY(-50%); /* exactly center korar jonno */
+            z-index: 10;
+        }
+        /* Header style for better alignment */
+        .header-content {
+            display: flex;
+            justify-content: center; /* PSMS text ke center e rakhar jonno */
+            align-items: center;
+            width: 100%;
+            position: relative; /* Logout button er jonno */
+        }
+        .header-content h3 {
+            margin: 0; /* Bootstrap default margin remove kora holo */
+            flex-grow: 1; /* H3 ke space newar onumoti deya holo */
+            text-align: center; /* নিশ্চিত করার জন্য যে H3 সর্বদা সেন্টারে থাকে */
+        }
+        /* Style for the Logout button - positioned to the right */
+        .logout-btn {
+            position: absolute; /* header-er moddhe position fixed korar jonno */
+            top: 50%; /* header theke niche vertical center */
+            right: 15px; /* header-er dan pashe */
+            transform: translateY(-50%); /* exactly center korar jonno */
+            z-index: 10;
         }
