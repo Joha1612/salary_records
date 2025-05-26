@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Entry</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+  <!-- Form Section -->
+  <div class="form-container">
+    <h1>Monthly Salary Entry</h1>
+    <form id="salaryForm">
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date">
+      </div>
+
+      <div class="form-group">
+        <label for="year">Year</label>
+        <select id="year" name="year" required>
+          <option value="">Select Year</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="month">Month</label>
+        <select id="month" name="month" required>
+          <option value="">Select Month</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="paymentType">Payment type</label>
+        <select id="paymentType" name="paymentType" required>
+          <option value="">Select Payment type</option>
+          <option value="Full">Full</option>
+          <option value="Partial">Partial payment</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="salaryAmount">Salary Amount (৳)</label>
+        <input type="hidden" id="salaryAmount" name="salaryAmount" value="30000" readonly step="0.01" min="0">
+      </div>
+
+      <div class="form-group">
+        <label for="amountPayable">Amount payable</label>
+        <input type="number" id="amountPayable" name="amountPayable" required placeholder="Amount">
+      </div>
+
+      <div class="form-group">
+        <!-- <label for="monthlyDue">Monthly due</label> -->
+        <input type="hidden" id="monthlyDue" name="monthlyDue" required readonly>
+      </div>
+
+      <div class="form-group">
+        <!-- <label for="totalDue">Total due</label> -->
+        <input type="hidden" id="totalDue" name="totalDue" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Comment</label>
+        <textarea id="comments" name="comments" rows="2" placeholder="Comment"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div id="message"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

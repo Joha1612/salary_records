@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Table Section -->
+<div class="table-container">
+    <!-- ফিল্টার সেকশন যোগ করুন -->
+    <div class="filter-section">
+      <div class="form-group">
+        <label for="filterMonth">Filter By Month</label>
+        <select id="filterMonth" name="filterMonth">
+          <option value="">Select Month</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="filterYear">Filter By Year</label>
+        <select id="filterYear" name="filterYear">
+          <option value="">Select Year</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+        </select>
+      </div>
+      
+      <button type="button" onclick="applyFilters()" class="submit-btn">Search</button>
+      <button type="button" onclick="resetFilters()" class="cancel-btn">Cancel</button>
+    </div>
+    
+    <table id="salaryTable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Paid</th>
+            <th>Due</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <!-- Table Section এর নিচে এই বাটনগুলো যোগ করুন -->
+<div class="action-buttons">
+    <button onclick="generatePDF()" class="action-btn pdf-btn">Download PDF</button>
+    <button onclick="window.print()" class="action-btn print-btn">Print</button>
+    <button onclick="generateReport()" class="action-btn create-btn">Create Report</button>
+  </div>
+  
+  <!-- পেজিনেশন কন্ট্রোল -->
+  <div class="pagination">
+    <button id="prevPage" onclick="prevPage()" disabled>Previous</button>
+    <span id="pageInfo">পৃষ্ঠা 1</span>
+    <button id="nextPage" onclick="nextPage()">Next</button>
+  </div>
+  </div>
+  <div class="report-table-container">
+  <h2>Salary Report</h2>
+  <!-- ফিল্টার সেকশন যোগ করুন -->
+    <div class="filter-section">
+      <div class="form-group">
+        <label for="filterMonth">Filter By Status</label>
+        <select id="filterType" name="filterType">
+          <option value="">All</option>
+          <option value="Paid">Paid</option>
+          <option value="Due">Due</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="filterYear">Filter By Year</label>
+        <select id="filterYear1" name="filterYear">
+          <option value="">Year</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+        </select>
+      </div>
+      
+      <button type="button" onclick="applyFilters1()" class="submit-btn">Search</button>
+      <button type="button" onclick="resetFilters2()" class="cancel-btn">Cancel</button>
+    </div>
+  <p id="reportTotalDue" style="font-weight: bold; margin-bottom: 10px;">Total Due: 0 Taka</p>
+<table id="reportTable" border="1">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Year</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<!-- Button to trigger -->
+ <div>
+  <button onclick="generateFilteredReportPDF()" class="action-btn report-pdf-btn">📄 Download PDF</button>
+ </div>
+</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
