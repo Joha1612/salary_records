@@ -238,14 +238,31 @@ function formatDate(dateString) {
 }
 
 // Message
+// function showMessage(text, type) {
+//   const messageEl = document.getElementById('message');
+//   messageEl.className = type;
+//   messageEl.textContent = text;
+//   messageEl.style.display = 'block';
+//   setTimeout(() => messageEl.style.display = 'none', 5000);
+// }
 function showMessage(text, type) {
-  const messageEl = document.getElementById('message');
-  messageEl.className = type;
-  messageEl.textContent = text;
-  messageEl.style.display = 'block';
-  setTimeout(() => messageEl.style.display = 'none', 5000);
-}
-
+    const popup = document.getElementById('popup-message');
+    popup.textContent = text;
+    popup.className = type;
+    popup.style.display = 'block';
+    
+    // Fade in
+    setTimeout(() => {
+      popup.style.opacity = '1';
+    }, 10);
+    
+    // Fade out after 5 seconds
+    setTimeout(() => {
+      popup.style.opacity = '0';
+      // Hide after fade out transition (300ms)
+      setTimeout(() => popup.style.display = 'none', 300);
+    }, 5000);
+  }
 // jsPDF loader
 function loadJS() {
   if (!document.querySelector('script[src*="jspdf"]')) {
