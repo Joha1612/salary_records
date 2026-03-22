@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salary Entry</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container py-4">
+    <div class="form-container mx-auto">
+      <h1 class="h4 text-center mb-4">Monthly Salary Entry</h1>
+
+      <!-- KEEP ids and names exactly as script.js expects -->
+      <form id="salaryForm" class="row g-3">
+        <div class="col-sm-12 col-md-6">
+          <label for="date" class="form-label">Date</label>
+          <input type="date" id="date" name="date" class="form-control">
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <label for="year" class="form-label">Year</label>
+          <select id="year" name="year" class="form-select" required>
+            <option value="">Select Year</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+          </select>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <label for="month" class="form-label">Month</label>
+          <select id="month" name="month" class="form-select" required>
+            <option value="">Select Month</option>
+            <option>January</option><option>February</option><option>March</option>
+            <option>April</option><option>May</option><option>June</option>
+            <option>July</option><option>August</option><option>September</option>
+            <option>October</option><option>November</option><option>December</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="paymentType" class="form-label">Payment type</label>
+          <select id="paymentType" name="paymentType" class="form-select" required>
+            <option value="">Select Payment type</option>
+            <option value="Full">Full</option>
+            <option value="Partial">Partial payment</option>
+          </select>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="salaryAmount" class="form-label">Salary Amount (৳)</label>
+          <!-- kept as hidden originally in your upload, but here visible readonly number for clarity; script.js expects id salaryAmount -->
+          <input type="hidden" id="salaryAmount" name="salaryAmount" class="form-control" value="40000" readonly>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <label for="amountPayable" class="form-label">Amount payable</label>
+          <input type="number" id="amountPayable" name="amountPayable" class="form-control" required placeholder="Amount">
+        </div>
+
+        <!-- Hidden fields used by script.js — IDs preserved exactly -->
+        <input type="hidden" id="monthlyDue" name="monthlyDue" />
+        <input type="hidden" id="totalDue" name="totalDue" />
+
+        <div class="col-12">
+          <label for="comments" class="form-label">Comment</label>
+          <textarea id="comments" name="comments" class="form-control" rows="2" placeholder="Comment"></textarea>
+        </div>
+
+        <div class="col-12 d-grid">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
+      <!-- popup-message element preserved (script.js likely uses it) -->
+      <div id="popup-message" style="display:none;"></div>
+
+    </div>
+  </div>
+
+  <!-- include user's script exactly as uploaded (NO CHANGES) -->
+  <script src="script.js"></script>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

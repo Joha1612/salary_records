@@ -1,0 +1,82 @@
+/* base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* container width */
+.container { max-width: 1100px; }
+
+/* panels */
+.form-container, .table-container, .report-table-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+/* popup message */
+#popup-message {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+  z-index: 9999;
+}
+
+/* small helpers for success/error if script uses them */
+.success { background: #e6f4ea; color: #137333; padding: 8px; border-radius: 4px; }
+.error { background: #fce8e6; color: #d93025; padding: 8px; border-radius: 4px; }
+
+/* main layout */
+.main { display: flex; }
+
+/* sidebar */
+.sidebar { min-width: 250px; }
+
+/* iframe fallback */
+iframe { border: none; width: 100%; }
+
+/* responsive tweaks */
+@media (max-width: 767px) {
+  .sidebar { display:none; }
+  iframe { height: 60vh; }
+}
+
+/* print */
+@media print {
+  header, footer, .filter-section, .action-buttons, .pagination { display: none !important; }
+  body { background: white; }
+}
+/* ======================
+   Row color markers
+   ====================== */
+
+/* light red for due > 0 */
+.row-due td {
+  background-color: #fdecea; /* very light red */
+  color: #8a1f1f; /* dark red text */
+}
+
+/* light green for due == 0 */
+.row-paid td {
+  background-color: #e9f6ee; /* very light green */
+  color: #14663b; /* dark green text */
+}
+
+/* keep header style intact when rows colored */
+#salaryTable thead th {
+  background-color: #f1f3f4;
+}
+
+/* ensure borders & padding remain readable on mobile */
+#salaryTable td, #salaryTable th {
+  vertical-align: middle;
+  white-space: normal;
+}
