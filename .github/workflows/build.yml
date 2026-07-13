@@ -15,21 +15,43 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Java 21
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      - name: Create package.json
+        run: |
+          cat > package.json <<EOF
+          {
+            "name": "psm",
+            "version": "1.0.0",
+            "private": true
+          }
+          EOF
+
       - name: Install Capacitor
         run: |
-          npm install -g @capacitor/cli
-          npm install @capacitor/core @capacitor/android
+          npm install
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+
+      - name: Prepare Web Files
+        run: |
+          mkdir -p www
+          cp *.html www/ || true
+          cp *.css www/ || true
+          cp *.js www/ || true
+          cp *.png www/ || true
+          cp *.jpg www/ || true
+          cp *.jpeg www/ || true
+          cp *.gif www/ || true
+          cp -r assets www/assets 2>/dev/null || true
 
       - name: Create Capacitor Config
         run: |
@@ -37,19 +59,19 @@ jobs:
           {
             "appId": "com.psm.app",
             "appName": "PSM",
-            "webDir": ".",
-            "server": {
-              "androidScheme": "https"
-            }
+            "webDir": "www"
           }
           EOF
 
-      - name: Add Android Platform
+      - name: Add Android
         run: |
-          npx cap add android || true
+          npx cap add android
+
+      - name: Sync Android
+        run: |
           npx cap sync android
 
-      - name: Build Debug APK
+      - name: Build APK
         run: |
           cd android
           chmod +x gradlew
